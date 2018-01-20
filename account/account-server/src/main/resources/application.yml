@@ -1,0 +1,27 @@
+server:
+    port: 3007
+management:
+  port: 4007
+  security:
+    enabled: false
+eureka:
+    client:
+      service-url:
+         defaultZone: http://user:123456@localhost:8762/eureka/
+    instance:
+      metadata-map:
+         management.port: ${management.port}
+spring:
+  application:
+    name: account-server
+  datasource:
+      url: jdbc:mysql://localhost:3311/test?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&useSSL=false&useOldAliasMetadataBehavior=true
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+      schema: classpath:/ddl/init.ddl
+      initialize: true
+      continue-on-error: true
+feign:
+  hystrix:
+    enabled: true
