@@ -18,6 +18,6 @@
 		<module>account-spring-cloud-starter</module>
 		<module>account-core</module>
 		<module>account-server</module>
-		<module>account-spring-boot-security-mobile</module>
+		<module>account-spring-boot-starter-security-mobile</module>
 	</modules>
 </project>

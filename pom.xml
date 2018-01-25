@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>account</module>
+        <module>test-web</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

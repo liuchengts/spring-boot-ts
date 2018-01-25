@@ -1,2 +1,2 @@
-com/account/model/Account.class
-com/account/model/Account$AccountBuilder.class
+com/account/common/Account.class
+com/account/common/Account$AccountBuilder.class
