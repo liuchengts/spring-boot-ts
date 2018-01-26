@@ -20,7 +20,7 @@ import org.springframework.security.web.authentication.RememberMeServices;
 @Configuration
 @EnableWebSecurity
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
-public class AccountAccountSecurityConfigurerAdapter extends AccountWebSecurityConfigurerAdapter {
+public class SecurityWebConfigurerAdapter extends AccountWebSecurityConfigurerAdapter {
 
     @Autowired
     private RememberMeServices rememberMeServices;
