@@ -91,9 +91,9 @@ public class TokenBasedRememberMeServices extends AbstractRememberMeServices {
     private Method setHttpOnlyMethod;
 
     /**
-     * 20分钟
+     * 30分钟
      */
-    private final static int SESSION_TIME_OUT = 20;
+    private final static int SESSION_TIME_OUT = 30;
 
     private UserDetailsChecker userDetailsChecker = new AccountStatusUserDetailsChecker();
 
@@ -220,7 +220,7 @@ public class TokenBasedRememberMeServices extends AbstractRememberMeServices {
 
         String signatureValue = makeTokenSignature(expiryTime, username, password);
 
-        //设置到redis中，并失效时间为20分钟
+        //设置到redis中，并失效时间为30分钟
         redisTemplate.opsForValue().set(signatureValue, username, SESSION_TIME_OUT, TimeUnit.MINUTES);
 
         setCookie(new String[]{username, Long.toString(expiryTime), signatureValue},

@@ -54,6 +54,6 @@ public class CurrentUserDetails extends Account implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return this.getState().equals(1);
     }
 }

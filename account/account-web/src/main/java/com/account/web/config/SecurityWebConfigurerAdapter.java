@@ -15,7 +15,6 @@ import org.springframework.security.web.authentication.RememberMeServices;
 /**
  * web security config
  *
- * @author linux_china
  */
 @Configuration
 @EnableWebSecurity
