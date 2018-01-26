@@ -1,0 +1,15 @@
+com/ytx/account/boot/security/web/userdetails/MyWebSecurityExpressionHandler.class
+com/ytx/account/boot/security/web/userdetails/MyLoginUrlAuthenticationEntryPoint.class
+com/ytx/account/boot/security/test/WithMockYtxUser.class
+com/ytx/account/boot/security/web/AuthorizationHeaderFilter$AuthorizationHeaderWrapper.class
+com/ytx/account/boot/security/web/userdetails/UserDetailsServiceImpl.class
+com/ytx/account/boot/security/web/userdetails/CurrentAccountControllerAdvice.class
+com/ytx/account/boot/security/test/WithMockYtxUserSecurityContextFactory.class
+com/ytx/account/boot/security/web/userdetails/YtxWebSecurityConfigurerAdapter.class
+com/ytx/account/boot/security/web/AuthorizationHeaderFilter.class
+com/ytx/account/boot/security/web/TokenBasedRememberMeServices.class
+com/ytx/account/boot/security/web/YtxSecurityWebAutoconfiguration.class
+com/ytx/account/boot/security/test/TestCurrentAccountControllerAdvice.class
+com/ytx/account/boot/security/web/userdetails/RestAccessDeniedHandler.class
+com/ytx/account/boot/security/web/userdetails/PermissionEvaluatorImpl.class
+com/ytx/account/boot/security/web/userdetails/CurrentUserDetails.class

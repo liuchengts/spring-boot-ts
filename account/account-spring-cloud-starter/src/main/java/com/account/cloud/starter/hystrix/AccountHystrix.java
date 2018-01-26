@@ -20,7 +20,12 @@ public class AccountHystrix implements AccountClient {
     }
 
     @Override
-    public Account findOneAccount(String accountName) {
+    public Account findByAccountName(String accountName) {
+        return null;
+    }
+
+    @Override
+    public Account findById(Long id) {
         return null;
     }
 }

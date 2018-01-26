@@ -20,6 +20,6 @@ public interface AccountService {
      * @param accountName 账户名
      * @return 返回账户对象
      */
-    Account findOneAccount(String accountName);
+    Account findByAccountName(String accountName);
 
 }

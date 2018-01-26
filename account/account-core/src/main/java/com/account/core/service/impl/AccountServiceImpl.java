@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 public class AccountServiceImpl implements AccountService {
     private final AccountRepository accountRepository;
 
-
     @Autowired
     public AccountServiceImpl(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
@@ -21,16 +20,11 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account findAccount(String accountName, String accountPwd) {
-        return accountRepository.findOne(Account.builder()
-                .accountName(accountName)
-                .accountPwd(accountPwd)
-                .build());
+        return accountRepository.findByAccountNameEqualsAndAccountPwdEquals(accountName, accountPwd);
     }
 
     @Override
-    public Account findOneAccount(String accountName) {
-        return accountRepository.findOne(Account.builder()
-                .accountName(accountName)
-                .build());
+    public Account findByAccountName(String accountName) {
+        return accountRepository.findByAccountNameEquals(accountName);
     }
 }
