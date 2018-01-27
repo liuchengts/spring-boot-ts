@@ -40,24 +40,6 @@ public class LoginController {
     @Autowired
     private RememberMeServices rememberMeServices;
 
-    @GetMapping("/logint")
-    public Map logint(@RequestParam String username,
-                     @RequestParam String password,
-                     @RequestParam(required = false) String redirect,
-                     @RequestParam(required = false) String captcha,
-                     @CookieValue(required = false) String cid,
-                     HttpServletRequest request, HttpServletResponse response) {
-        Map<String, Object> result = new HashMap<>();
-        //1、验证码验证
-        //2、账号密码验证
-        Account account = accountClient.findAccount(username, password);
-        if (null != account) {
-            handleLogin(account, redirect, request, response, result);
-        } else {
-            result.put("error", "用户名或密码错误");
-        }
-        return result;
-    }
     @PostMapping("/login")
     public Map login(@RequestParam String username,
                      @RequestParam String password,
@@ -72,6 +54,7 @@ public class LoginController {
         if (null != account) {
             handleLogin(account, redirect, request, response, result);
         } else {
+            result.put("isSuccess", false);
             result.put("error", "用户名或密码错误");
         }
         return result;
@@ -95,7 +78,7 @@ public class LoginController {
             //通过账户获得用户的信息
             wrapper.addCookie(new Cookie("nickname", URLEncoder.encode(account.getAccountName(), "UTF-8")));
 //            wrapper.addCookie(new Cookie("headImg", account.getHeadImg() == null ? "" : account.getHeadImg()));
-            result.put("result", true);
+            result.put("isSuccess", true);
             if (account.getAuthoritiesText().contains("ROLE_BUYER")) {
                 wrapper.addCookie(new Cookie("accountType", "1"));
             } else if (account.getAuthoritiesText().contains("ROLE_SELLER")) {

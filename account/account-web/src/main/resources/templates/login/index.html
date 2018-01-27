@@ -6,7 +6,8 @@
     <title>login-index</title>
 </head>
 <body>
-<form th:action="${loginUrl}" method="post">
+<input type="hidden" id="loginUrl" th:value="${loginUrl}"/>
+<div>
     <p>
         <label for="username">Username</label>
         <input type="text" id="username" name="username"/>
@@ -16,7 +17,32 @@
         <input type="password" id="password" name="password"/>
     </p>
     <input type="hidden" name="redirect" th:value="${redirect}"/>
-    <button type="submit" class="btn">Log in</button>
-</form>
+    <button type="button" onclick="login()" class="btn">Log in</button>
+</div>
+<script th:inline="javascript">
+    function login() {
+        var docMain = {
+            loginUrl: $('#loginUrl').val(),
+            username: $('#username').val(),
+            password: $('#password').val()
+        }
+        $.ajax({
+            url: docMain.loginUrl,
+            data: {username: docMain.username, password: docMain.password},
+            type: "POST",
+            success: function (result) {
+                if (result.isSuccess) {
+                    location.href = result.redirect;
+                } else {
+                    alert(result.error);
+                }
+            },
+            error: function () {
+                alert('未知错误');
+            }
+        });
+    }
+</script>
+<script src="../../static/js/jquery-1.11.3.min.js" th:src="${'/static/js/jquery-1.11.3.min.js?v='+version}"></script>
 </body>
 </html>

@@ -21,9 +21,6 @@ import org.springframework.security.web.authentication.RememberMeServices;
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class SecurityWebConfigurerAdapter extends AccountWebSecurityConfigurerAdapter {
 
-    @Value("${info.account.login.url}")
-    private String loginUrl;
-
     @Value("${info.seller.domain}")
     private String sellerDomain;
     @Override
@@ -42,6 +39,6 @@ public class SecurityWebConfigurerAdapter extends AccountWebSecurityConfigurerAd
 
     @Override
     protected String getRedirect() {
-        return loginUrl;
+        return null;
     }
 }

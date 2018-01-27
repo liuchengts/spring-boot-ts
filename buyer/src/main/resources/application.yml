@@ -22,9 +22,9 @@ feign:
     enabled: true
 
 info:
-  domain: localhost  #
+  domain: localhost
   domain.version: 1.0
-  account.login.url: http://${info.domain}:3008/login/index #
-  account.logout.url: http://${info.domain}:3008/logout #
-  buyer.domain: ${info.domain}:3009/buyer/index #
-  seller.domain: ${info.domain}:3009/seller/index #
+  account.login.url: http://${info.domain}:3008/login/index
+  account.logout.url: http://${info.domain}:3008/logout
+  buyer.domain: http://${info.domain}:3009/buyer/index
+  seller.domain: http://${info.domain}:3009/seller/index
