@@ -1,4 +1,4 @@
-package com.account.web.config;
+package com.buyer.web.config;
 
 import com.account.boot.security.web.userdetails.AccountWebSecurityConfigurerAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,34 +21,23 @@ import org.springframework.security.web.authentication.RememberMeServices;
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class SecurityWebConfigurerAdapter extends AccountWebSecurityConfigurerAdapter {
 
-    @Autowired
-    private RememberMeServices rememberMeServices;
-
-    private String[] whiteAccountUrls = new String[]{"/**", "/"};
     @Value("${info.account.login.url}")
     private String loginUrl;
 
+    @Value("${info.seller.domain}")
+    private String sellerDomain;
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void internalConfigure(HttpSecurity http) throws Exception {
         http.sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authorizeRequests()
-                .antMatchers(whiteAccountUrls).permitAll()
-                .and()
-                .rememberMe().key(rememberMeAppKey).rememberMeServices(rememberMeServices)
-                .and()
-                .exceptionHandling().authenticationEntryPoint(myLoginUrlAuthenticationEntryPoint())
-                .accessDeniedHandler(restAccessDeniedHandler());
+                .antMatchers("/**","/").hasAuthority("ROLE_BUYER")
+                .anyRequest().authenticated();
     }
 
-    @Override
-    protected void internalConfigure(HttpSecurity http) throws Exception {
-
-    }
-
-    @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers(whiteUrls).antMatchers("/password/**");
+        web.expressionHandler(myWebSecurityExpressionHandler());
+        web.ignoring().antMatchers(whiteUrls);
     }
 
     @Override

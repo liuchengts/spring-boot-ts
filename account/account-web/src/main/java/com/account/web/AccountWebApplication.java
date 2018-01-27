@@ -21,8 +21,8 @@ import java.util.EnumSet;
 @EnableHystrix//开启断路器功能
 @Configuration
 @EnableAsync //启用异步
-@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
 public class AccountWebApplication extends WebMvcConfigurerAdapter {
     public static void main(String[] args) {
         SpringApplication.run(AccountWebApplication.class, args);

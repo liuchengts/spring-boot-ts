@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>login-index</title>
+</head>
+<body>
+<form th:action="${loginUrl}" method="post">
+    <p>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username"/>
+    </p>
+    <p>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password"/>
+    </p>
+    <input type="hidden" name="redirect" th:value="${redirect}"/>
+    <button type="submit" class="btn">Log in</button>
+</form>
+</body>
+</html>
