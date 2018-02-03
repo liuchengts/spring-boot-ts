@@ -1,0 +1,7 @@
+server:
+    port: 3012
+management:
+  port: 4012
+spring:
+  application:
+    name: export-web
