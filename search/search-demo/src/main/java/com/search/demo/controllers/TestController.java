@@ -17,8 +17,8 @@ public class TestController {
     @Autowired
     private TransportClient client;
 
-    @GetMapping("/fand")
-    public Object fand() {
+    @GetMapping("/search")
+    public Object search() {
         return client.prepareSearch("test")
                 //查询作者是lc的
                 .setQuery(QueryBuilders.termQuery("author", "lc"))
