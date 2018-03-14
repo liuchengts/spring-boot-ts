@@ -15,7 +15,7 @@ public class FeignAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(SearchHystrix.class)
-    public SearchHystrix accountClient() {
+    public SearchHystrix searchClient() {
         return new SearchHystrix();
     }
 
