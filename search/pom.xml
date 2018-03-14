@@ -17,6 +17,7 @@
         <module>search-spring-cloud-starter</module>
         <module>search-core</module>
         <module>search-server</module>
+        <module>search-demo</module>
     </modules>
 
 

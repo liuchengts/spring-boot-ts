@@ -1,0 +1,5 @@
+elasticsearch:
+  properties:
+    urls: localhost
+    cluster: elasticsearch
+    port: 9300
